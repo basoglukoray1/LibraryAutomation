@@ -1,5 +1,6 @@
 package com.library.step_definition;
 
+import com.library.utilities.ConfigReader;
 import com.library.utilities.DB_Util;
 import com.library.utilities.Driver;
 import io.cucumber.java.After;
@@ -32,14 +33,16 @@ public class Hooks {
         Driver.closeBrowser();
     }
 
-    //for DB
-    @Before
+    @Before("@db")
     public void dbSetup() {
-
+        String url = ConfigReader.read("library2.db.url");
+        String username = ConfigReader.read("library2.db.username");
+        String password = ConfigReader.read("library2.db.password");
+        DB_Util.createConnection(url, username, password);
     }
 
     //for DB
-    @After
+    @After("@db")
     public void dbTearDown() {
         DB_Util.destroy();
     }
