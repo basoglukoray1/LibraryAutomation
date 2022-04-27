@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
                 features = "src/test/resources/features",
                 glue = "com/library/step_definition",
                 dryRun = false,
-                tags = "@us03",
+                tags = "@smoke",
                publish = false
 
 )
