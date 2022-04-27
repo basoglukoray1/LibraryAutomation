@@ -23,6 +23,7 @@ public class LoginPage {
 
 
     public void login(){
+        Driver.getDriver().get(ConfigReader.read("library_url"));
         String username= ConfigReader.read("librarian_username");
         String password=ConfigReader.read("password");
 
