@@ -21,7 +21,7 @@ public class Driver {
      * @return
      */
 
-    //changes2
+    //changes2 23
     public static WebDriver getDriver(){
         //read the browser type you want to launch from properties file
         String browserName= ConfigReader.read("browser");
