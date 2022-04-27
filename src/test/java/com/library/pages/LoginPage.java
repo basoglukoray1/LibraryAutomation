@@ -19,7 +19,7 @@ public class LoginPage {
     public WebElement passwordBox;
 
     @FindBy(tagName = "button")
-    public WebElement loginButton;
+    public WebElement loginButton;//
 
 
     public void login(){
