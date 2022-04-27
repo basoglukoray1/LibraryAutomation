@@ -18,9 +18,9 @@ public class LoginPage {
     @FindBy(id = "inputPassword")
     public WebElement passwordBox;
 
-    @FindBy(tagName = "button")//
+  
+    @FindBy(tagName = "button")
     public WebElement loginButton;
-
 
     public void login(){
         String username= ConfigReader.read("librarian_username");
