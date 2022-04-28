@@ -11,17 +11,14 @@ import org.junit.Assert;
 
 public class US2_BorrowedBookSteps {
 
-    LoginPage loginPage;
-    //LoginPage loginPage =new LoginPage();
+    LoginPage loginPage =new LoginPage();
     DashBoardPage dashBoardPage;
     String actualBorrowedBooksNumber;
 
     @Given("I am in the homepage of library app")
     public void i_am_in_the_homepage_of_library_app() {
-        loginPage = new LoginPage();
         loginPage.login();
     }
-
     @When("I take borrowed books number")
     public void i_take_borrowed_books_number() {
         dashBoardPage = new DashBoardPage();
@@ -29,7 +26,6 @@ public class US2_BorrowedBookSteps {
         actualBorrowedBooksNumber = dashBoardPage.borrowedBooksNumber.getText();
 
     }
-
     @Then("borrowed books number information must match with DB")
     public void borrowed_books_number_information_must_match_with_db() {
         String query = "SELECT COUNT(*)\n" +
@@ -40,6 +36,4 @@ public class US2_BorrowedBookSteps {
         Assert.assertEquals(expectedBorrowedBooksNumber, actualBorrowedBooksNumber);
 //
     }
-
-
 }
