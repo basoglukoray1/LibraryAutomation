@@ -18,11 +18,12 @@ public class LoginPage {
     @FindBy(id = "inputPassword")
     public WebElement passwordBox;
 
+  
     @FindBy(tagName = "button")
     public WebElement loginButton;
 
-
     public void login(){
+        Driver.getDriver().get(ConfigReader.read("library_url"));
         String username= ConfigReader.read("librarian_username");
         String password=ConfigReader.read("password");
 
