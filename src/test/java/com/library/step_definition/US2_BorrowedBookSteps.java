@@ -11,16 +11,17 @@ import org.junit.Assert;
 
 public class US2_BorrowedBookSteps {
 
-    LoginPage loginPage =new LoginPage();
+    LoginPage loginPage;
     DashBoardPage dashBoardPage;
     String actualBorrowedBooksNumber;
 
-    @Given("I am in the homepage of library app")
-    public void i_am_in_the_homepage_of_library_app() {
+    @Given("I am on the homepage of library app")
+    public void i_am_on_the_homepage_of_library_app() {
+        LoginPage loginPage =new LoginPage();
         loginPage.login();
     }
-    @When("I take borrowed books number")
-    public void i_take_borrowed_books_number() {
+    @When("I get borrowed books number")
+    public void i_get_borrowed_books_number() {
         dashBoardPage = new DashBoardPage();
         BrowserUtil.waitFor(3);
         actualBorrowedBooksNumber = dashBoardPage.borrowedBooksNumber.getText();
@@ -34,6 +35,6 @@ public class US2_BorrowedBookSteps {
         DB_Util.runQuery(query);
         String expectedBorrowedBooksNumber = DB_Util.getFirstRowFirstColumn();
         Assert.assertEquals(expectedBorrowedBooksNumber, actualBorrowedBooksNumber);
-//
+
     }
 }
