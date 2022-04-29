@@ -11,13 +11,11 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UIAndDBMatch {
+public class US6_UIAndDBMatch {
     LoginPage loginPage=new LoginPage();
     DashBoardPage dashBoardPage=new DashBoardPage();
     BooksPage booksPage=new BooksPage();
@@ -35,9 +33,7 @@ public class UIAndDBMatch {
     @When("I take all book categories in UI")
     public void i_take_all_book_categories_in_ui() {
         BrowserUtil.waitFor(5);
-
         actualData=booksPage.bookCategories();
-
     }
 
 
@@ -46,15 +42,11 @@ public class UIAndDBMatch {
 
     @When("I execute a query to get book categories")
     public void i_execute_a_query_to_get_book_categories() {
-        DB_Util.createConnection(ConfigReader.read("library2.db.url"),
-                ConfigReader.read("library2.db.username"),
-                ConfigReader.read("library2.db.password"));
         DB_Util.runQuery("select name from book_categories");
         expectedData=DB_Util.getColumnDataAsList("name");
     }
     @Then("verify book categories must match the book_categories table from DB.")
     public void verify_book_categories_must_match_the_book_categories_table_from_db() {
         Assert.assertEquals(expectedData, actualData);
-        Driver.closeBrowser();
     }
 }
