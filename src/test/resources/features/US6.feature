@@ -1,5 +1,6 @@
+@US6
 Feature: As a data consumer, I want UI and DB book categories match.
-  @smoke
+  @db
   Scenario: verify book categories with DB
     Given I log in as a librarian
     When I navigate to the "Books" page
