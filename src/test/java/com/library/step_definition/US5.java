@@ -5,7 +5,6 @@ import com.library.pages.DashBoardPage;
 import com.library.pages.LoginPage;
 import com.library.utilities.BrowserUtil;
 import com.library.utilities.DB_Util;
-import com.library.utilities.QueryReader;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
